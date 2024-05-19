@@ -2,10 +2,14 @@
   import Header from "~/components/HeaderComponent/Header.vue";
   import AddDataMenu from "~/components/AddDataMenu.vue";
   import StatsConsole from "~/components/StatsConsole.vue";
+  import { onMounted } from "vue";
+  import { useUserStore } from "../store/user";
 
   definePageMeta({
     middleware: "auth",
   });
+
+  const { getUser } = useUserStore();
 
   const chartData = ref<{ dates: string[]; values: number[] } | null>(null);
   const addInvestmentsModalOpen = ref<boolean>(false);
