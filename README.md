@@ -1,3 +1,5 @@
+This is a project integrating Supabase, the aim is to have a finance app to manage my own finances, investments and subscriptions, its an evolving project, it has already an auth system, still a work in progress.
+
 # Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
