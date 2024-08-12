@@ -1,18 +1,18 @@
 import { defineStore } from "pinia";
 import { useUserStore } from "./user";
 
-export const useInvestmentsStore = defineStore("investments", () => {
+export const useSubscriptionsStore = defineStore("subscriptions", () => {
   const client = useSupabaseClient();
   const { user } = storeToRefs(useUserStore());
 
   const investments = ref();
 
-  const getInvestments = async () => {
+  const getSubscriptions = async (user: string) => {
     try {
       const response = await client
-        .from("investments")
+        .from("subscriptions")
         .select("*")
-        .eq("user_id", user.value.id);
+        .eq("user_id", user);
    
       investments.value = response.data;
     } catch (error) {
@@ -20,28 +20,28 @@ export const useInvestmentsStore = defineStore("investments", () => {
     }
   };
 
-  const createInvestment = async (investment: any) => {
+  const createSubscription = async (investment: any) => {
     try {
       const dataToSend = {
         ...investment,
         user_id: user.value.id,
       };
       console.log(dataToSend)
-      await client.from("investments").insert(dataToSend);
+      await client.from("subscriptions").insert(dataToSend);
 
-      await getInvestments();
+      await getSubscriptions();
     } catch (error) {
       console.error(error);
     }
     };
     
-    watch(user, () => {
-        getInvestments();
+    watch(user, (newUser) => {
+      getSubscriptions(newUser.id);
      });
 
   return {
     investments,
-    getInvestments,
-    createInvestment,
+    getSubscriptions,
+    createSubscription,
   };
 });

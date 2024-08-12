@@ -36,17 +36,14 @@
         class="container space-x-12 mx-auto flex flex-col px-12 py-28 sm:flex-row"
       >
         <StatsConsole />
-        <InvestmentChart
-          :dates="chartData?.dates"
-          :values="chartData?.values"
-        />
+
       </div>
 
       <AddDataMenu
         @open-add-investment-modal="addInvestmentsModalOpen = true"
       />
 
-      <AddInvestments
+      <AddPlans
         :isOpen="addInvestmentsModalOpen"
         @close-modal="addInvestmentsModalOpen = false"
       />
