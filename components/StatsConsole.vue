@@ -1,11 +1,11 @@
 <script setup lang="ts">
-  import { useInvestmentsStore } from "../store/investments";
-  import { watch, onMounted } from "vue";
+  import { useSubscriptionsStore } from "../store/subscriptions";
+  import { onMounted } from "vue";
 
-  const { getInvestments, investments } = useInvestmentsStore();
+  const { getSubscriptions } = useSubscriptionsStore();
 
   onMounted(async ()  => {
-    await getInvestments();
+    await getSubscriptions();
   });
 </script>
 
