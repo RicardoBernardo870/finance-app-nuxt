@@ -3,4 +3,4 @@ export type Subsctiptions = {
   plan_id: string;
   start_date: number;
   end_date: string;
-}
+};
