@@ -88,7 +88,7 @@
         </div>
 
         <div>
-          <p v-if="errorMsg" class="text-sm text-red-600" v-text="errorMsg"/>
+          <p v-if="errorMsg" class="text-sm text-red-600" v-text="errorMsg" />
         </div>
 
         <div>

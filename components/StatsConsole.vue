@@ -4,9 +4,6 @@
 
   const { getSubscriptions } = useSubscriptionsStore();
 
-  onMounted(async ()  => {
-    await getSubscriptions();
-  });
 </script>
 
 <template>
