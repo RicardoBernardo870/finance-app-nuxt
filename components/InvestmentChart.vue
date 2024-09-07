@@ -17,7 +17,7 @@
 
   const props = defineProps<Props>();
   const chartCanvas = ref<HTMLCanvasElement | null>(null);
-let chartInstance: Chart | null = null;
+  let chartInstance: Chart | null = null;
 
   const createChart = () => {
     if (chartInstance) chartInstance.destroy();
@@ -45,12 +45,13 @@ let chartInstance: Chart | null = null;
     }
   };
 
+  watch(
+    () => [props.dates, props.values],
+    () => {
+      createChart();
+    }
+  );
 
-  watch(() => [props.dates, props.values], () => {
-    createChart();
-  });
-
-  
   onMounted(() => {
     createChart();
   });

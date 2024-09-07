@@ -36,7 +36,6 @@
         class="container space-x-12 mx-auto flex flex-col px-12 py-28 sm:flex-row"
       >
         <StatsConsole />
-
       </div>
 
       <AddDataMenu
